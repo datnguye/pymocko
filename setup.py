@@ -6,7 +6,7 @@ setup(
      author='datnguye',
      author_email='datnguyen.it09@gmail.com',
      packages=['pymocko'],
-     url='https://github.com/datnguye/pyrando',
+     url='https://github.com/datnguye/pymocko',
      license='MIT',
      description='A package to generate mock data',
      long_description_content_type="text/markdown",
