@@ -16,7 +16,7 @@ def mock(schema_json=None, count=10):
                 data[key] = str(date.mock())
             elif value == "num":
                 data[key] = num.mock()
-            elif key == "price":
+            elif value == "price":
                 data[key] = price.mock()
             else:
                 normalize_key = key.replace("_","")
