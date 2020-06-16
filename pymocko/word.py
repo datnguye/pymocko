@@ -1,6 +1,7 @@
 import random as r
+from . import char
 
-def mock(no_of_word=5, upper_first=False):
+def mock(no_of_word=5, upper_first=False, upper_first_all=False):
     if no_of_word is None:
         no_of_word = 5
 
@@ -8,9 +9,43 @@ def mock(no_of_word=5, upper_first=False):
 
     result = ""
     for i in range(no_of_word):
-        result += f" {r.choice(words)}"
+        if upper_first_all:
+            result += f" {r.choice(words).capitalize()}"
+        else:
+            result += f" {r.choice(words)}"
     
     if upper_first:
         return result[1:].capitalize()
 
     return result[1:]
+
+def mock_phone(prefix=""):
+    result = ""
+    if prefix is None:
+        prefix = ""
+    if prefix == "":
+        result = "0"
+    else:
+        result = prefix
+
+    for i in range(r.choice([10,11])):
+        result += r.choice("0123456789")
+
+    return result
+
+def mock_email(domain=None):
+    if domain is None:
+        cal_domain = mock(no_of_word=1) + r.choice([".com",".org",".net",".co",".online"])
+    else:
+        cal_domain = domain
+
+    return mock(no_of_word=int(r.uniform(1,2))).replace(" ",".") + "@" + cal_domain
+
+def mock_gender(upper_first=True):    
+    if upper_first:
+        return r.choice(["male","female","unkown","other"]).capitalize()
+
+    return r.choice(["male","female","unkown","other"])
+
+def mock_ip_address():
+    return char.mock(no_of_char=int(r.uniform(2,4)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True)  

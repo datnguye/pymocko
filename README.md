@@ -32,6 +32,12 @@ Python 3.7.5
 
 ## USAGE
 
+#### Mokcing by json model:
+```
+print("Mock model")
+print(model.mock(schema_json={"id":"num", "user_name":"word", "name":"word", "dob":"date", "phone_no":"char", "email":"word", "gender":"word", "ip_address":"char"}, count=5))
+```
+
 #### Randomize number:
 ```
 from pymocko import num
@@ -71,4 +77,9 @@ from pymocko import word
 print(word.mock()) 
 print(word.mock(no_of_word=20))
 print(word.mock(no_of_word=10, upper_first=True))
+print(word.mock_phone())
+print(word.mock_phone(prefix="+84"))
+print(word.mock_email())
+print(word.mock_email(domain="data.com"))
+print(word.mock_gender())
 ```
