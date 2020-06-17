@@ -10,9 +10,14 @@ def mock(schema_json=None, count=10):
     for i in range(count):
         data = {}
         for key, value in schema_json.items():
-            if value == "char":
+            if type(value) is dict:
+                for child_key, child_value in value.items():
+                    data[key] = mock(schema_json=value, count=1)[0]
+            elif type(value) is list:
+                data[key] = mock(schema_json=value[0], count=count)
+            elif value == "char":
                 data[key] = char.mock()
-            if value == "date":
+            elif value == "date":
                 data[key] = str(date.mock())
             elif value == "num":
                 data[key] = num.mock()

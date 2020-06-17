@@ -37,6 +37,7 @@ Python 3.7.5
 print("Mock model")
 print(model.mock(schema_json={"id":"num", "name":"word", "qty":"num", "unit_price":"price", "created_at":"date", "updated_at":"date"}, count=5))
 print(model.mock(schema_json={"id":"num", "user_name":"word", "name":"word", "dob":"date", "phone_no":"char", "email":"word", "gender":"word", "ip_address":"char"}, count=5))
+print(model.mock(schema_json={"id":"num", "name":"word", "qty": { "stocked": "num", "online": "num" }, "price":[ { "unit_price":"price", "effective_date": "date"} ], "created_at":"date", "updated_at":"date"}, count=3))
 ```
 
 #### Randomize number:

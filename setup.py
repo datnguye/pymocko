@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
      name='pymocko',
-     version='0.1.2',
+     version='0.1.3',
      author='datnguye',
      author_email='datnguyen.it09@gmail.com',
      packages=['pymocko'],
