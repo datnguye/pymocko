@@ -49,3 +49,6 @@ def mock_gender(upper_first=True):
 
 def mock_ip_address():
     return char.mock(no_of_char=int(r.uniform(2,4)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True) + "." + char.mock(no_of_char=int(r.uniform(1,3)),lower_inc=False,uppper_inc=False,number_inc=True)  
+
+def mock_tag():
+    return mock(no_of_word=int(r.uniform(1,2)), upper_first_all=True)
